@@ -11,7 +11,7 @@ class ProductsController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -21,9 +21,6 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        // $products = Product::all();
-        // return view('products.index')->with('products', $products);
-
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('products.index')->with('products', $user->products);
@@ -71,6 +68,15 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+
+        if($product == null){
+            return redirect('/products')->with('error', 'Product Not Found');
+        }
+
+        if (auth()->user()->id !== $product->user_id){
+            return redirect('/products')->with('error', 'Unautherized');
+        }
+
         return view('products.show')->with('product', $product);
     }
 
@@ -83,6 +89,15 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+
+        if($product == null){
+            return redirect('/products')->with('error', 'Product Not Found');
+        }
+
+        if (auth()->user()->id !== $product->user_id){
+            return redirect('/products')->with('error', 'Unautherized');
+        }
+
         return view('products.edit')->with('product', $product);
     }
 
@@ -101,10 +116,18 @@ class ProductsController extends Controller
         ]);
 
         $product = Product::find($id);
+
+        if($product == null){
+            return redirect('/products')->with('error', 'Product Not Found');
+        }
+
+        if (auth()->user()->id !== $product->user_id){
+            return redirect('/products')->with('error', 'Unautherized');
+        }
+        
         $product->name = $request->input('name');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
-        // $product->user_id = auth()->user()->id;
         $product->save();
 
         return redirect('/products')->with('success', 'Product Updated');
@@ -119,6 +142,15 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+
+        if($product == null){
+            return redirect('/products')->with('error', 'Product Not Found');
+        }
+
+        if (auth()->user()->id !== $product->user_id){
+            return redirect('/products')->with('error', 'Unautherized');
+        }
+
         $product->delete();
         return redirect('/products')->with('success', 'Product Deleted');
     }

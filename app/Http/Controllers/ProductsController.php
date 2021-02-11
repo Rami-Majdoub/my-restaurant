@@ -33,7 +33,11 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.form')->
+            with('action_name', 'post')->
+            with('action_route',
+                'App\Http\Controllers\ProductsController@store'
+            );
     }
 
     /**
@@ -98,7 +102,11 @@ class ProductsController extends Controller
             return redirect('/products')->with('error', 'Unautherized');
         }
 
-        return view('products.edit')->with('product', $product);
+        return view('products.form')->
+            with('action_name', 'put')->
+            with('action_route',
+                ['App\Http\Controllers\ProductsController@update', $product->id])->
+            with('product', $product);
     }
 
     /**

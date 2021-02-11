@@ -4,7 +4,12 @@
 
 <a href="/bills" class="btn btn-secondary"> Go back </a>
 <hr>
-<h4> Modifying bill </h4>
+@if($action_name == 'put')
+  <h4> Modifying bill </h4>
+@else
+  <h4> Creating a new bill </h4>
+@endif
+
 <hr>
 {!! Form::open(['action' => $action_route]) !!}
 
@@ -46,6 +51,11 @@
     </div>
   </div>
 
+  <!-- <div class="form-group">
+    {!! Form::label('product_list', 'Products:') !!}
+    {!! Form::select('product_list[]', $products, $selected_products, ['class' => 'form-control product_list', 'multiple']) !!}
+  </div> -->
+
   <!-- we can only use POST or GET with the form -->
   @if($action_name == 'put')
     {{ Form::hidden('_method', 'PUT') }}
@@ -75,4 +85,27 @@ function addRow() {
   $("#products_table").append(row);
 }
 </script>
+
+<!-- Select2 -->
+<!-- <script type="text/javascript">
+  const $eventSelect = $(".product_list");
+  $eventSelect.on("select2:select", function (e) {
+    $eventSelect.append('<option value="'+e.params.data.id+'">' +e.params.data.text + '</option>');
+  });
+  $eventSelect.on("select2:unselect", function (e) {
+    const siblingsAsObject = e.params.data.element.parentElement.children;
+    const siblingsAsArray = Object.values(siblingsAsObject);
+    const twin = siblingsAsArray.filter(s => s.innerText == e.params.data.text).length;
+    if (twin > 1) e.params.data.element.remove();
+  });
+  function formatResultData (data) {
+    if (!data.id) return data.text;
+    if (data.element.selected) return;
+    return data.text;
+  };
+  $('.product_list').select2({
+    templateResult: formatResultData,
+    tags: true
+  });
+</script> -->
 @endsection

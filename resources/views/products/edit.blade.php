@@ -15,12 +15,12 @@
 
   <div class="form-group">
     {{ Form::label('description', 'Description', ['class' => 'form-label']) }}
-    {{ Form::textarea('description', $product->description, ['class' => 'form-control']) }}
+    {{ Form::textarea('description', $product->description, ['rows' => 5, 'class' => 'form-control']) }}
   </div>
   
   <div class="form-group">
     {{ Form::label('price', 'Price', ['class' => 'form-label']) }}
-    {{ Form::number('price', $product->price, ['class' => 'form-control']) }}
+    {{ Form::number('price', $product->price, ['step' => 0.05, 'class' => 'form-control']) }}
   </div>
 
   <!-- we can only use POST or GET with the form -->

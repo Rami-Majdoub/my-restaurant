@@ -15,12 +15,12 @@
 
   <div class="form-group">
     {{ Form::label('description', 'Description', ['class' => 'form-label']) }}
-    {{ Form::textarea('description', '', ['class' => 'form-control']) }}
+    {{ Form::textarea('description', '', ['rows' => 5, 'class' => 'form-control']) }}
   </div>
   
   <div class="form-group">
     {{ Form::label('price', 'Price', ['class' => 'form-label']) }}
-    {{ Form::number('price', '', ['class' => 'form-control']) }}
+    {{ Form::number('price', '', ['step' => 0.05, 'class' => 'form-control']) }}
   </div>
 
   {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}

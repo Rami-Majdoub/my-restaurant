@@ -2,7 +2,8 @@
 
 @section('content')
 
-<a href="/products/create" class="btn btn-primary">Create a new product</a>
+<a href="/products/create" class="btn btn-primary float-right">Create a new product</a>
+<h3>Menu</h3>
 <hr>
 
 @if(count($products) > 0)
@@ -19,8 +20,7 @@
 					</div>
 					<div class="card-footer">
             <a href="/products/{{ $product->id }}/edit" class="btn btn-dark"> update </a>
-						
-						{!! Form::open(['action' => ['App\Http\Controllers\ProductsController@destroy', $product->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
+						{!! Form::open(['action' => ['App\Http\Controllers\ProductsController@destroy', $product->id], 'method' => 'POST', 'class' => 'float-right']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
 							{{ Form::submit('delete', ['class' => 'btn btn-danger']) }}
 						{!! Form::close() !!}

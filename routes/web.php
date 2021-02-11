@@ -24,6 +24,7 @@ Route::get('/dashboard', [
 ])-> name('dashboard');
 
 Route::resource('products', 'App\Http\Controllers\ProductsController');
+Route::resource('bills', 'App\Http\Controllers\BillsController');
 
 Auth::routes();
 

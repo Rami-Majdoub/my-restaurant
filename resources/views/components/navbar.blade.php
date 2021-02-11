@@ -15,6 +15,9 @@
                         <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/bills" >{{ __('Bills') }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/products" >{{ __('Menu') }}</a>
                     </li>
                 @endguest

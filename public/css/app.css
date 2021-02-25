@@ -10903,3 +10903,33 @@ a.text-dark:focus {
   }
 }
 
+/* to compile this run: npm run dev */
+
+body {
+  color: white;
+  background-color: #292e33;
+}
+
+.text-muted {
+  color: white !important;
+}
+
+.card {
+  color: white !important;
+  background-color: #383d42 !important;
+}
+
+/* custom buttons */
+
+.btn-accent {
+  background: #ff005edb;
+  color: white;
+}
+
+.btn-white {
+  border-color: #9e9e9e;
+  border-width: thin;
+  color: black;
+  background-color: #fafafa;
+}
+

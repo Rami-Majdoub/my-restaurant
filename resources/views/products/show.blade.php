@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="/products" class="btn btn-primary"> Go back </a>
+<a href="/products" class="btn btn-accent"> Go back </a>
 <hr>
 
 <h5> {{ $product->name }} </h5>

@@ -2,13 +2,13 @@
 
 @section('content')
 
-<a href="/bills" class="btn btn-secondary"> Go back </a>
+<a href="/bills" class="btn btn-accent"> Go back </a>
 
 <br>
 <br>
-<h3> Bill of table {{ $bill->table->name?? 'DELETED' }} ({{ $bill->is_paid == 1? 'Paid': 'Not Paid' }})</h3>
+<h3> Bill for table {{ $bill->table->name?? 'DELETED' }} ({{ $bill->is_paid == 1? 'Paid': 'Not Paid' }})</h3>
 
-<div class="card text-center text-dark bg-light mb-3" style="max-width: 18rem;">
+<div class="card text-center bg-light mb-3" style="max-width: 18rem;">
   <div class="card-header">{{ $bill->user->restaurant_name }}</div>
   <div class="card-body">
     <h5 class="card-title">{{ $bill->created_at }}</h5>
@@ -26,17 +26,17 @@
 </div>
 
 <div>
-  <a href="/bills/{{ $bill->id }}/edit" class="btn btn-dark"> edit </a>
+  <a href="/bills/{{ $bill->id }}/edit" class="btn btn-white"> Edit </a>
 
   @if($bill->is_paid == 0)
     {!! Form::open(['action' => ['App\Http\Controllers\BillsController@mark_as_paid', $bill->id], 'method' => 'POST', 'style' => 'display: inline-block']) !!}
-    {{ Form::submit('Mark as paid', ['class' => 'btn btn-dark']) }}
+    {{ Form::submit('Mark as paid', ['class' => 'btn btn-white']) }}
     {!! Form::close() !!}
   @endif
 
   {!! Form::open(['action' => ['App\Http\Controllers\BillsController@destroy', $bill->id], 'method' => 'POST', 'style' => 'display: inline-block']) !!}
   {{ Form::hidden('_method', 'DELETE') }}
-  {{ Form::submit('delete', ['class' => 'btn btn-danger']) }}
+  {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
   {!! Form::close() !!}
 </div>
 

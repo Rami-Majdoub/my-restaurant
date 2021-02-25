@@ -2,12 +2,12 @@
 
 @section('content')
 
-<a href="/products" class="btn btn-primary"> Go back </a>
+<a href="/products" class="btn btn-accent"> Go back </a>
 <hr>
 @if($action_name == 'put')
-  <h4> Modifying product {{ $product->name }} </h4>
+  <h4> Edit product "{{ $product->name }}" </h4>
 @else
-  <h4> Creating a new product </h4>
+  <h4> Create product </h4>
 @endif
 <hr>
 {!! Form::open(['action' => $action_route]) !!}

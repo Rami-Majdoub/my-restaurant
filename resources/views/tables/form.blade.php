@@ -2,12 +2,12 @@
 
 @section('content')
 
-<a href="/tables" class="btn btn-secondary"> Go back </a>
+<a href="/tables" class="btn btn-accent"> Go back </a>
 <hr>
 @if($action_name == 'put')
-  <h4> Modifying table {{ $table->name }} </h4>
+  <h4> Edit table "{{ $table->name }}" </h4>
 @else
-  <h4> Creating a new table </h4>
+  <h4> Create table </h4>
 @endif
 <hr>
 {!! Form::open(['action' => $action_route]) !!}

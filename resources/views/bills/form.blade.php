@@ -2,12 +2,12 @@
 
 @section('content')
 
-<a href="/bills" class="btn btn-secondary"> Go back </a>
+<a href="/bills" class="btn btn-accent"> Go back </a>
 <hr>
 @if($action_name == 'put')
-  <h4> Modifying bill </h4>
+  <h4> Edit bill </h4>
 @else
-  <h4> Creating a new bill </h4>
+  <h4> Create bill </h4>
 @endif
 
 <hr>
@@ -51,7 +51,7 @@
         {!! Form::select('products', $products, '', ['id' => 'selectedProduct','class' => 'form-control']) !!}
       </div>
       <div class="col-1">
-        {!! Form::Button('Add', ['id' => 'addItem', 'class' => 'addItem btn btn-secondary', 'onClick' => 'addRow()']) !!}
+        {!! Form::Button('Add', ['id' => 'addItem', 'class' => 'addItem btn btn-white', 'onClick' => 'addRow()']) !!}
       </div>
     </div>
   </div>

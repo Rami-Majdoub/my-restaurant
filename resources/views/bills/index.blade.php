@@ -2,12 +2,12 @@
 
 @section('content')
 
-<a href="/bills/create" class="btn btn-primary float-right">Create a new bill</a>
+<a href="/bills/create" class="btn btn-primary float-right">Create bill</a>
 <h3>Bills</h3>
 <hr>
 
 @if(count($bills) > 0)
-	<div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+	<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
 		@foreach($bills as $bill)
 			<div class="col mb-3">
 				<div class="card h-100">
@@ -20,10 +20,10 @@
 						</p>
 					</div>
 					<div class="card-footer">
-            <a href="/bills/{{ $bill->id }}/edit" class="btn btn-dark"> edit </a>
+            <a href="/bills/{{ $bill->id }}/edit" class="btn btn-white"> Edit </a>
 						{!! Form::open(['action' => ['App\Http\Controllers\BillsController@destroy', $bill->id], 'method' => 'POST', 'class' => 'float-right']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('delete', ['class' => 'btn btn-danger']) }}
+							{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
 						{!! Form::close() !!}
           </div>
 				</div>

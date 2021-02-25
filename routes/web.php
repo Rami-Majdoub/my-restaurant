@@ -25,6 +25,11 @@ Route::get('/dashboard', [
 
 Route::resource('products', 'App\Http\Controllers\ProductsController');
 Route::resource('bills', 'App\Http\Controllers\BillsController');
+Route::post('/bills/{id}/mark-as-paid', [
+    App\Http\Controllers\BillsController::class,
+    'mark_as_paid'
+]);
+Route::resource('tables', 'App\Http\Controllers\TablesController');
 
 Auth::routes();
 

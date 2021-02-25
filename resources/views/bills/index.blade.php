@@ -13,7 +13,7 @@
 				<div class="card h-100">
 					<!-- <img src="..." class="card-img-top" alt="..."> -->
 					<div class="card-body">
-						<h5 class="card-title">Table: 1 ({{ $bill->is_paid == 0? 'Not Paid': 'Paid' }})</h5>
+						<h5 class="card-title">Table: {{ $bill->table->name?? 'DELETED' }} ({{ $bill->is_paid == 0? 'Not Paid': 'Paid' }})</h5>
 						<h6 class="card-subtitle mb-2 text-muted">Total: ${{ $bill->total }}</h6>
 						<p class="card-text">
 							<a href="/bills/{{ $bill->id }}"> See Bill </a>

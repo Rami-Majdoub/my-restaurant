@@ -19,6 +19,11 @@
   </div>
 
   <div class="form-group">
+    {{ Form::label('table', 'Table', ['class' => 'form-label']) }}
+    {{ Form::select('table_id', $user_tables, $bill->table_id ?? 0, ['class' => 'form-control']) }}
+  </div>
+
+  <div class="form-group">
     <table class="w-100" id="products_table">
       <tr>
         <th>Product</th>

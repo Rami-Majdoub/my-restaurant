@@ -29,4 +29,10 @@ class Bill extends Model
           ->withTimestamps()
           ->withPivot(['quantity']);
     }
+
+    public function table()
+    {
+        return $this->belongsTo(Table::class);
+    }
+
 }

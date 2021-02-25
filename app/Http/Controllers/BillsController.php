@@ -26,6 +26,24 @@ class BillsController extends Controller
     }
 
     /**
+    * Change the bill attribute is_paid to true.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function mark_as_paid(int $id)
+    {
+      $bill = Bill::find($id);
+      $result = $this->manageErrors($bill);
+      if($result) return $result;
+
+      $bill->is_paid = 1;
+      $bill->save();
+
+      return redirect('/tables')->with('success', 'Bill Paid');
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -41,6 +59,7 @@ class BillsController extends Controller
                 'App\Http\Controllers\BillsController@store'
             )->
           with('products', $products)->
+          with('user_tables', auth()->user()->tables()->pluck('name', 'id'))->
           with('selected_products', $selected_products);
     }
 
@@ -50,7 +69,8 @@ class BillsController extends Controller
     private function validateFields(Request $request)
     {
         $this->validate($request, [
-            'is_paid' => 'required'
+            'is_paid' => 'required',
+            'table_id' => 'required'
         ]);
     }
 
@@ -71,6 +91,7 @@ class BillsController extends Controller
         // save the bill to create the id field
         // after you specify the required values
         $bill->is_paid = $request->input('is_paid');
+        $bill->table_id = $request->input('table_id');
         $bill->user_id = auth()->user()->id;
         $bill->total = 0;
         $bill->save();
@@ -178,6 +199,7 @@ class BillsController extends Controller
                 ['App\Http\Controllers\BillsController@update', $bill->id])->
           with('bill', $bill)->
           with('products', $products)->
+          with('user_tables', auth()->user()->tables()->pluck('name', 'id'))->
           with('selected_products', $selected_products);
     }
 

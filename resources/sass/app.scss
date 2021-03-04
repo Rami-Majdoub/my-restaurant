@@ -10,7 +10,17 @@
 /* to compile this run: npm run dev */
 
 $dark-theme: true;
-@if $dark-theme {
+@if $dark-theme {  
+  [type=text]:not(:disabled),
+  [type=email]:not(:disabled),
+  [type=password]:not(:disabled),
+  [type=number]:not(:disabled),
+  textarea:not(:disabled),
+  select:not(:disabled),
+  {
+    background-color: #363b3f !important;
+    color: white !important;
+  }
   body {
     color: white;
     background-color: #292e33;

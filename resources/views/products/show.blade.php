@@ -6,6 +6,7 @@
 <hr>
 
 <h5> {{ $product->name }} </h5>
-<p> {{ $product->description }} </p>
+<h6> $ {{ $product->price }} </h6>
+<p> {!! $product->description !!} </p>
 
 @endsection

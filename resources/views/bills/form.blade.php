@@ -83,7 +83,7 @@ function addRow() {
       {!! Form::label('bill_product_list[]', '${name}', ['class' => 'col-auto']) !!}
     </td>
     <td>
-      {!! Form::number('bill_product_quantity[]', '0', ['min' => 0, 'class' => 'form-control col-auto']) !!}
+      {!! Form::number('bill_product_quantity[]', '1', ['min' => 0, 'class' => 'form-control col-auto']) !!}
     </td>
   </tr>
   `;

@@ -8,7 +8,7 @@
 <br>
 <h3> Bill for table {{ $bill->table->name?? 'DELETED' }} ({{ $bill->is_paid == 1? 'Paid': 'Not Paid' }})</h3>
 
-<div class="card text-center bg-light mb-3" style="max-width: 18rem;">
+<div class="card text-center bg-light mb-3" style="max-width: 25rem;">
   <div class="card-header">{{ $bill->user->restaurant_name }}</div>
   <div class="card-body">
     <h5 class="card-title">{{ $bill->created_at }}</h5>
@@ -16,8 +16,8 @@
     <table class="mb-3 w-100">
       @foreach($bill->products as $product)
         <tr>
-          <td>{{$product->pivot->quantity}} {{ $product->name }}</td>
-          <td>$ {{$product->price * $product->pivot->quantity}}</td>
+          <td align="left">{{$product->pivot->quantity}} {{ $product->name }}</td>
+          <td align="left">$ {{$product->price * $product->pivot->quantity}}</td>
         </tr>
       @endforeach
     </table>

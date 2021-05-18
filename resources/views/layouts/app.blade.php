@@ -19,6 +19,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
+    <!-- select2 -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script></head> -->
+    <!-- <link href="https://cdn.bootcss.com/select2/4.0.0/css/select2.min.css" rel="stylesheet" /> -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.bootcss.com/select2/4.0.0/js/select2.min.js"></script> -->
 <body>
     <div id="app">
         @include("components.navbar")

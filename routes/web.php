@@ -33,3 +33,16 @@ Route::resource('tables', 'App\Http\Controllers\TablesController');
 
 Auth::routes();
 
+// create
+// Route::get('/create', function(){
+//   \App\Models\Bill::create([
+//     'is_paid' => false,
+//     'paid' => 4
+//   ]);
+//
+//   $bill = \App\Models\Bill::find(2);
+//   $product = \App\Models\Product::find(10);
+//
+//   $bill->products()->attach(10);
+//
+// });

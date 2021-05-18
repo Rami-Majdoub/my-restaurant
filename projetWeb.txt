@@ -1,0 +1,90 @@
+une plateforme de gestion des boutiques.
+un administrateur qui gère les utilisateurs et les boutiques.
+un utilisateur peut gérer ces produits.
+
+////////////////////////////////////
+
+une plateforme de gestion des restaurants.
+un administrateur qui gère les utilisateurs et les restaurants.
+un utilisateur peut gérer ces produits et ces factures.
+
+admin:
+/restaurants
+/users
+
+user:
+/products
+/bills
+
+//////////////////////////////////////
+
+
+Restaurants
+	id: 1
+	name: delice
+	
+	id: 2
+	name: seven
+
+Users
+	id: 1
+	role: admin
+	#idRestaurant: null
+	
+	id: 2
+	role: user
+	#idRestaurant: 1
+	
+Products
+	id: 1
+	name: cappucin
+	price: 2
+	image: "images/delice_cappucin.png"
+	#idRestaurant: 1
+	
+	id: 2
+	name: bouga
+	price: 1.5
+	image: "images/delice_bouga.png"
+	#idRestaurant: 1
+	
+Bills
+	products:[{id:1}, {id:2}]
+	paid
+	[price]
+	
+
+Admin
+Restaurants
+Menu: 
+	list the products of the user Restaurant(user) | list the resaurants
+Bills:
+	list all
+	create a Bill
+
+Restaurants CR[U]D
+bill CRUD
+product CRUD
+
+
+Bill
+	products:[]
+	paid
+	[price]
+
+Product
+	id
+	name
+	price
+	image
+	#idRestaurant
+	
+Restaurants
+	name
+
+Users
+	id
+	role: admin | user
+	#res
+	
+
